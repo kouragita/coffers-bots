@@ -15,12 +15,14 @@ total = 0
 
 # Welcome the customer
 name = input('What is your name?\n')
-print('Hi, ' + name + ', I am CHUNKZ, and welcome to Coffers Cafe.')
+print('Hi, ' + name + ', I am Chunkz, and welcome to Coffers Cafe.')
 print('Here is our menu:')
 
 # Display the menu
 for item, price in menu.items():
     print(f'{item.capitalize()}: ${price}')
+
+orders = []
 
 # Ask for orders
 while True:
@@ -35,8 +37,13 @@ while True:
 
     quantity = int(input(f"How many {order}s would you like?\n"))
     total += menu[order] * quantity
+    orders.append((order, quantity))
 
 # Display the total cost
-print(f"Thank you, {name}! Your total is: ${total}")
+print(f"Thank you, {name}! Your order is:")
+for item, quantity in orders:
+    print(f"{quantity} {item}s")
+print(f"Total: ${total}")
 print(f"Have a blast, {name}, and enjoy your meal!")
+
 print('CHUNKZ is in a competition with Bee, tag him for more... AND whom yu love. drop a rating.🔥🔥')
